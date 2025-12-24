@@ -1,13 +1,15 @@
-import { useFormStore } from '../../store/useFormStore';
+import { useThemeStore } from "../../store/themeStore";
 
 export default function Header() {
-  const { theme, toggleTheme } = useFormStore();
+  const { theme, toggleTheme } = useThemeStore();
 
   return (
-    <header className="h-14 px-6 flex items-center justify-between border-b">
-      <h1 className="font-bold text-blue-600">FormBuilder</h1>
-      <button onClick={toggleTheme} className="btn-secondary">
-        {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+    <header className="h-14 flex items-center justify-end px-6 border-b bg-white dark:bg-zinc-900 dark:border-zinc-700">
+      <button
+        onClick={toggleTheme}
+        className="border px-3 py-1 rounded text-sm"
+      >
+        {theme === "light" ? "🌙 Dark" : "☀️ Light"}
       </button>
     </header>
   );
